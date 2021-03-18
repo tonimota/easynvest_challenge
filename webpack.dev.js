@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
@@ -32,6 +33,38 @@ module.exports = {
               name: '[path][name].[ext]?hash=[hash:20]',
               esModule: false,
               limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /.(s(a|c)ss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
             },
           },
         ],

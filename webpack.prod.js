@@ -44,6 +44,38 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /.(s(a|c)ss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -55,8 +87,8 @@ module.exports = {
       filename: 'index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css',
+      filename: '[name].[hash:20].css',
+      chunkFilename: '[id].[hash:20].css',
     }),
   ],
   optimization: {

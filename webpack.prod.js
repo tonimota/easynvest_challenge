@@ -11,11 +11,11 @@ const buildPath = path.resolve(__dirname, 'dist');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    index: './src/index.js',
+    index: './src/index.js'
   },
   output: {
     filename: '[name].[hash:20].js',
-    path: buildPath,
+    path: buildPath
   },
   module: {
     rules: [
@@ -24,12 +24,21 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env'],
-        },
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current'
+                }
+              }
+            ]
+          ]
+        }
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -39,10 +48,10 @@ module.exports = {
             options: {
               name: '[name].[hash:20].[ext]',
               esModule: false,
-              limit: 8192,
-            },
-          },
-        ],
+              limit: 8192
+            }
+          }
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -51,16 +60,16 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: false,
-            },
+              sourceMap: false
+            }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false,
-            },
-          },
-        ],
+              sourceMap: false
+            }
+          }
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -71,12 +80,12 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false,
-            },
-          },
-        ],
-      },
-    ],
+              sourceMap: false
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -84,12 +93,12 @@ module.exports = {
       template: './src/index.html',
       inject: 'body',
       chunks: ['index'],
-      filename: 'index.html',
+      filename: 'index.html'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash:20].css',
-      chunkFilename: '[id].[hash:20].css',
-    }),
+      chunkFilename: '[id].[hash:20].css'
+    })
   ],
   optimization: {
     minimize: true,
@@ -97,9 +106,9 @@ module.exports = {
       new TerserPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true,
+        sourceMap: true
       }),
-      new OptimizeCssAssetsPlugin({}),
-    ],
-  },
+      new OptimizeCssAssetsPlugin({})
+    ]
+  }
 };

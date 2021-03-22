@@ -1,0 +1,16 @@
+.user-section-list {
+  &_item {
+    list-style: none;
+    padding: 0px;
+    margin: 20px 0px;
+    &__persona, &__info, &__actions {
+      span {
+        display: block;
+        margin-bottom: 5px;
+        strong {
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+}

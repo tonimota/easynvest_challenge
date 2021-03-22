@@ -1,0 +1,40 @@
+
+.btn-submit {
+  outline: none;
+  width: 100%;
+  background-color: $btn-enabled-color;
+  border-radius: 50px;
+  border: none;
+  padding: 15px;
+  font-size: 30px;
+  color: $btn-enabled-text;
+  
+  &:hover{
+    opacity: $btn-enabled-hover;
+    cursor: pointer;
+  }
+  
+  &.disabled{
+    background-color: $btn-disabled-color;
+    color: $btn-disabled-text;
+    
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+
+.action-btn {
+  background: $btn-disabled-color;
+  border: none;
+  transition: all .5s;
+  color: $btn-enabled-color;
+  border: 1px solid $btn-enabled-color;
+  border-radius: 50px;
+  outline: none;
+  &:hover {
+    background-color: $btn-enabled-color;
+    color: $btn-disabled-color;
+  }
+  
+}

@@ -1,5 +1,5 @@
 import userController from '../controller/UserController';
-import { getlocalStorage } from '../helpers/index.js';
+import { getlocalStorage } from '../helpers/utils.js';
 
 export default class RenderList {
   constructor() {

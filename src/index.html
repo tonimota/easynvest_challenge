@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <h1>Teste</h1>
-  </body>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <section class="form-section">
+    <h1 class="list-user-title">Cadastro de Usuários</h1>
+    <form id="user-form" action="javascript:void(0)">
+      <div class="form-section_container">
+        <input type="text" required name="name" id="name" class="form-section_container__input user_data"/>
+        <label for="name">Nome completo (sem abreviações)</label>
+        <span class="error-message" id="name-error"></span>
+      </div>
+      <div class="form-section_container">
+        <input type="email" required name="email" id="email" class="form-section_container__input user_data"/>
+        <label for="email">Email</label>
+        <span class="error-message" id="email-error"></span>
+      </div>
+      <div class="form-section_container">
+        <input type="text" required name="cpf" maxlength="14" id="cpf" class="form-section_container__input user_data"/>
+        <label for="cpf">CPF</label>
+        <span class="error-message" id="cpf-error"></span>
+      </div>
+      <div class="form-section_container">
+        <input type="tel" required name="phone" maxlength="15" id="phone" class="form-section_container__input user_data"/>
+        <label for="phone">Telefone</label>
+        <span class="error-message" id="phone-error"></span>
+      </div>
+      <div class="form-section_container">
+        <input disable type="submit" id="send" class="material-button disabled" value="Cadastrar">
+        <div class="loader" id="loader"></div>
+      </div>
+    </form>
+  </section>
+  <section class="user-section">
+    <h1 class="user-section-list-title">Usuários Cadastrados</h1>
+    <ul class="user-section-list">
+    </ul>
+  </section>
+</body>
 </html>

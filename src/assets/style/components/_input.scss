@@ -1,0 +1,61 @@
+@import '../variable.scss';
+
+
+.form-section {
+
+  &_container{
+    position:relative;
+    margin:40px auto;
+    &__input{
+      position:relative;
+      z-index:1;
+      width:100%;
+      height:35px;
+      font-size:16px;
+      border:none;
+      border-bottom:1px solid $input-border;
+      background-color:transparent;
+      
+      &.error{
+        border-color: #c43330;
+      }
+      
+      & + label{
+        position:absolute;
+        top:10px;
+        left:3px;
+        font-size:16px;
+        color: $input-color;
+        transition: all .2s ease-out;
+      }
+      
+      &:focus, 
+      &.has-value
+      {
+        outline: none;
+        border-width:1px;
+        border-color:$input-focus;
+        transition: all .2s ease-out;
+        &.error{
+          border-color: #c43330;
+        }
+      }
+      
+      &:focus + label,
+      &.has-value + label
+      {
+        top:-15px;
+        color:$input-focus;
+        font-size:12px;
+      }
+      &.has-value:not(:focus) + label{
+        color:$input-focus;
+      }
+    }
+    
+    .error-message{
+      font-family:Roboto, sans-serif;
+      color: red;
+    }
+  }
+}

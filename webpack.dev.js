@@ -2,13 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'inline-source-map',
   entry: {
     index: './src/index.js'
   },
   devServer: {
-    port: 8080,
-    writeToDisk: false
+    port: 8080
   },
   module: {
     rules: [
@@ -28,10 +27,6 @@ module.exports = {
             ]
           ]
         }
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -56,20 +51,6 @@ module.exports = {
               sourceMap: true
             }
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /.(s(a|c)ss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
           {
             loader: 'sass-loader',
             options: {

@@ -1,13 +1,10 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: {
-    index: './src/index.js'
-  },
-  devServer: {
-    port: 8080
+    index: './src/app.js'
   },
   module: {
     rules: [
@@ -27,19 +24,6 @@ module.exports = {
             ]
           ]
         }
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              name: '[path][name].[ext]?hash=[hash:20]',
-              esModule: false,
-              limit: 8192
-            }
-          }
-        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -66,7 +50,12 @@ module.exports = {
       template: './src/index.html',
       inject: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: './public/favicon.ico'
     })
-  ]
+  ],
+  devServer: {
+    port: 8080
+  },
+  devtool: 'inline-source-map'
 };

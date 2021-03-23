@@ -1,4 +1,3 @@
-import userController from './controller/UserController.js';
 import eventController from './controller/EventsController.js';
 import formController from './controller/FormController.js';
 import Mask from './core/mask';

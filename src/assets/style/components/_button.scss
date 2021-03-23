@@ -35,6 +35,7 @@
   &:hover {
     background-color: $btn-enabled-color;
     color: $btn-disabled-color;
+    cursor: pointer;
   }
   
 }

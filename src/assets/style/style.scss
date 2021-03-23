@@ -1,11 +1,18 @@
-@import './components/_input.scss';
-@import './components/_button.scss';
-@import './components/_list.scss';
-@import './variable.scss';
+@import './components/_input';
+@import './components/_button';
+@import './components/_list';
+@import './components/_loader';
+@import './reset';
+@import './_variable';
+@import './_mixins';
+
 
 * {
   font-family: 'Ubuntu';
-  // color: $btn-enabled-color;
+}
+body {
+  margin: 0px;
+  padding: 0px;
 }
 a, li, ul {
   list-style: none;
@@ -15,8 +22,15 @@ a, li, ul {
 .form-section, .user-section {
   width: 450px;
   margin: 0 auto;
+  @include for-phone-only {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
 
-h1, strong  {
-  color: $btn-enabled-color
+h1 {
+  color: $btn-enabled-color;
+  text-align: center;
+  margin: 0px;
+  padding: 20px 0px;
 }

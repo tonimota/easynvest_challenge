@@ -7,8 +7,11 @@
       span {
         display: block;
         margin-bottom: 5px;
-        strong {
+        :first-child {
           padding-right: 5px;
+        }
+        em {
+          font-style: normal;
         }
       }
     }

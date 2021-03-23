@@ -19,28 +19,28 @@ export default class RenderList {
         template = `<div class="user-section-list_item__persona">
                       <span class="user-section-list_item__persona_name" id="user-name">
                         <strong>Nome:</strong>
-                        <strong class="user_name_item">${el.name}</strong>
+                        <em class="user_name_item">${el.name}</em>
                       </span>
                       <span class="user-section-list_item__persona_cpf" id="user-cpf">
                         <strong>CPF:</strong>
-                        <strong class="user_cpf_item">${el.cpf}</strong>
+                        <em class="user_cpf_item">${el.cpf}</em>
                       </span>
                     </div>
                     <div class="user-section-list_item__info">
                       <span class="user-section-list_item__email" id="user-email">
                         <strong>E-mail:</strong>
-                        <strong class="user_email_item">${el.email}</strong>
+                        <em class="user_email_item">${el.email}</em>
                       </span>
                       <span class="user-section-list_item__phone" id="user-phone">
                         <strong>Tel:</strong>
-                        <strong class="user_phone_item">${el.phone}</strong>
+                        <em class="user_phone_item">${el.phone}</em>
                       </span>
                     </div>
                     <div class="user-section-list_item__actions">
-                      <button type="button" class="action-btn edit" data-id=${
+                      <button id="edit-btn" type="button" class="action-btn edit" data-id=${
                         el.id ? el.id : el.cpf
                       } id="edit">Edit</button>
-                      <button type="button" class="action-btn delete" data-id=${
+                      <button id="delete-btn" type="button" class="action-btn delete" data-id=${
                         el.id ? el.id : el.cpf
                       }>Delete</button>
                     </div>`;

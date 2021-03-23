@@ -49,7 +49,6 @@ export default class EventController {
     const btnEdit = document.querySelector('.user-section-list');
     if (btnEdit != null) {
       btnEdit.addEventListener('click', (e) => {
-        console.log(e.target.getAttribute('class'));
         if (e.target.getAttribute('class') === 'action-btn edit') {
           e.preventDefault();
           let id = e.target.getAttribute('data-id');

@@ -14,13 +14,14 @@ export default class UserController {
     this.phone;
     this.lastId;
     this.formId;
-    this.users = getlocalStorage();
+    this.users;
   }
 
   set(name, email, cpf, phone) {
     let users = [];
     let newUser = {};
     const validateFields = new validationController();
+    this.users = getlocalStorage();
     if (this.users) users = this.users;
 
     this.id = this.lastId++;
@@ -49,6 +50,7 @@ export default class UserController {
     returnToHome();
   }
   delete(itemId) {
+    this.users = getlocalStorage();
     const userList = this.users;
     for (var i = 0; i < userList.length; i++) {
       if (parseInt(itemId) == userList[i].id) {

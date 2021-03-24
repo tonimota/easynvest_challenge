@@ -2,13 +2,14 @@
 @import './components/_button';
 @import './components/_list';
 @import './components/_loader';
+@import './fonts';
+@import './mixins';
 @import './reset';
-@import './_variable';
-@import './_mixins';
+@import './variable';
 
 
 * {
-  font-family: 'Ubuntu';
+  font-family: 'Open Sans', sans-serif;
 }
 body {
   margin: 0px;

@@ -52,7 +52,7 @@ export default class UserController {
   delete(itemId) {
     this.users = getlocalStorage();
     const userList = this.users;
-    for (var i = 0; i < userList.length; i++) {
+    for (let i = 0; i < userList.length; i++) {
       if (parseInt(itemId) == userList[i].id) {
         userList.splice(i, 1);
       }

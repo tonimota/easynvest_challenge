@@ -1,7 +1,7 @@
 export default class Mask {
   inputMask() {
     document.getElementById('phone').addEventListener('input', function (e) {
-      var x = e.target.value
+      let x = e.target.value
         .replace(/\D/g, '')
         .match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
       e.target.value = !x[2]

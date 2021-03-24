@@ -6,16 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const buildPath = path.resolve(__dirname, 'dist');
-
 module.exports = {
-  devtool: 'source-map',
   entry: {
-    index: './src/index.js'
+    index: './src/app.js'
   },
   output: {
-    filename: '[name].[hash:20].js',
-    path: buildPath
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/',
+    filename: '[name].[hash:20].js'
   },
   module: {
     rules: [
@@ -37,50 +35,19 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              name: '[name].[hash:20].[ext]',
-              esModule: false,
-              limit: 8192
-            }
-          }
-        ]
-      },
-      {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              sourceMap: false
+              sourceMap: true
             }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /.(s(a|c)ss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: false
+              sourceMap: true
             }
           }
         ]
@@ -93,7 +60,8 @@ module.exports = {
       template: './src/index.html',
       inject: 'body',
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: './public/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash:20].css',

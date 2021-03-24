@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-// Serve the static files from the React app
+// Serve the static files from Dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handles any requests that don't match the ones above

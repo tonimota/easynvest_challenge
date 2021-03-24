@@ -1,36 +1,42 @@
 # easynvest challenge
 
-[Live Demo](https://easynvestchallenge.herokuapp.com/)
 
 
 This project use:
 
 - ES6
+- Bem (Block Element Modifier)
 - Sass (scss)
-- Media Querys
-- Bem
+- Media Queries
 - Webpack 5
 - Fecth Api
-- LocalStorage for api token
+- LocalStorage
 - Mocha
 - Chai
+- Babel
 
 
 ## Run
 
-### Server Project
-
 The server is running in Heroku. The first time have a few delay, because the server stay in sleep
+
+[Live Demo](https://easynvestchallenge.herokuapp.com/)
+
+## Dependencies
+
+Install the dependencie.
+
+- [NodeJS ^v10.13](https://nodejs.org/en/download/package-manager/)
 
 ### Client Project
 
 `git clone https://github.com/tonimota/easynvest_challenge.git`
 
-`cd easy_test`
-
-## Development:
+`cd easynvest_challenge`
 
 `npm install`
+
+## Development:
 
 `npm run dev`
 

@@ -1,4 +1,4 @@
-import eventController from './controller/EventsController.js';
+import eventController from './controller/EventController.js';
 import formController from './controller/FormController.js';
 import Mask from './core/mask';
 import renderList from './view/index.js';
